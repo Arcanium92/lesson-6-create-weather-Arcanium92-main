@@ -31,6 +31,9 @@ def display_weather(data):
     print(f"Temperature: {temp}°F")
     print(f"Conditions: {weather_condition}")
 
+# Function to validate that zipcode is only int input and length of zip is 5 characters long
+def validate_zip(zip_code):
+    return zip_code.isdigit() and len(zip_code) == 5
 # function for the Main Program to collect user data
 def main():
     api_key = input("Please paste your API key: ")
