@@ -34,11 +34,17 @@ def display_weather(data):
 # Function to validate that zipcode is only int input and length of zip is 5 characters long
 def validate_zip(zip_code):
     return zip_code.isdigit() and len(zip_code) == 5
+
 # function for the Main Program to collect user data
 def main():
     api_key = input("Please paste your API key: ")
     while True:
         zip_code = input("Enter a valid zip code: ")
+        # Calls validate_zip function to verify user input and loop them until given proper entry
+        while not validate_zip(zip_code):
+            print("Invalid entry. Please enter a 5 digit zip code.")
+            zip_code = input("Enter a valid zip code: ")
+
         data = get_weather(api_key, zip_code)
         display_weather(data)
 
